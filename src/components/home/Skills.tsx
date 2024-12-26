@@ -29,10 +29,10 @@ function Skills() {
 interface SkillCardProps {
   skill: {
     category: string;
-    icon: React.FC<{ size?: number }>;
+    icon: React.FC<{ size?: string | number }>; // Updated to accept string or number
     items: {
       name: string;
-      icon: React.FC<{ size?: number }>;
+      icon: React.FC<{ size?: string | number }>; // Updated to accept string or number
     }[];
   };
   index: number;
@@ -51,7 +51,7 @@ function SkillCard({ skill, index }: SkillCardProps) {
     >
       <div className="flex items-center gap-3 mb-6">
         <div className="p-2 bg-primary-100 dark:bg-nord-polar-3 rounded-lg group-hover:bg-primary-200 dark:group-hover:bg-nord-polar-4 transition-colors">
-          <CategoryIcon size={24} className="text-primary-600 dark:text-nord-frost-2" />
+          <CategoryIcon size={24} />
         </div>
         <h3 className="text-xl font-semibold">{skill.category}</h3>
       </div>
@@ -64,7 +64,9 @@ function SkillCard({ skill, index }: SkillCardProps) {
               key={item.name} 
               className="flex items-center gap-3 text-gray-600 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
             >
-              <ItemIcon size={16} className="text-primary-500 dark:text-nord-frost-2" />
+              <span className="text-primary-500 dark:text-nord-frost-2">
+                <ItemIcon size={16} />
+              </span>
               {item.name}
             </li>
           );
