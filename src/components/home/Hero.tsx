@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Users, Star, GitFork } from 'lucide-react';
+import { Github, Linkedin, Twitter, Users, Star } from 'lucide-react';
 import { settings } from '../../settings';
-import { useGitHubUser } from '../../hooks/useGitHubUser';
+import { useGitHubUser  } from '../../hooks/useGitHubUser';
 import LoadingSkeleton from '../LoadingSkeleton';
 import TypeWriter from '../common/TypeWriter';
 import BackgroundPattern from './BackgroundPattern';
 import StatsCard from './StatsCard';
 
 function Hero() {
-  const { data: githubUser, isLoading, error } = useGitHubUser();
+  const { data: githubUser , isLoading, error } = useGitHubUser ();
   const { social } = settings.personalInfo;
   const [showRole, setShowRole] = useState(false);
 
@@ -50,7 +50,7 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-block px-4 py-2 rounded-full bg-primary-100 dark:bg-nord-polar-3 text-primary-600 dark:text-nord-frost-2 text-sm font-medium"
           >
-            👋 Welcome to my portfolio
+            🤗 Welcome to my portfolio
           </motion.div>
 
           <motion.h1 
@@ -61,7 +61,7 @@ function Hero() {
           >
             Hi, I'm{' '}
             <span className="bg-gradient-to-r from-primary-600 to-primary-500 dark:from-nord-frost-1 dark:to-nord-frost-2 bg-clip-text text-transparent">
-              {githubUser?.name}
+              {githubUser ?.name}
             </span>
           </motion.h1>
 
@@ -90,7 +90,7 @@ function Hero() {
             transition={{ delay: 0.5 }}
             className="text-lg text-gray-600 dark:text-gray-400"
           >
-            {githubUser?.bio || settings.personalInfo.bio}
+            {githubUser ?.bio || settings.personalInfo.bio}
           </motion.p>
 
           <motion.div 
@@ -108,7 +108,7 @@ function Hero() {
             <StatsCard
               icon={<Users className="w-6 h-6 text-primary-500 dark:text-nord-frost-2" />}
               label="GitHub Followers"
-              value={githubUser?.followers || 0}
+              value={githubUser ?.followers || 0}
               delay={0.9}
             />
             <StatsCard
@@ -127,8 +127,8 @@ function Hero() {
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-primary-500/20 to-primary-300/20 dark:from-nord-frost-1/20 dark:to-nord-frost-2/20 rounded-full blur-3xl" />
           <img
-            src={githubUser?.avatar_url}
-            alt={githubUser?.name}
+            src={githubUser ?.avatar_url}
+            alt={githubUser ?.name}
             className="relative w-48 h-48 md:w-80 md:h-80 rounded-full object-cover shadow-xl ring-4 ring-white dark:ring-nord-polar-2"
           />
         </motion.div>
@@ -139,7 +139,7 @@ function Hero() {
 
 interface SocialLinkProps {
   href: string;
-  icon: React.FC<{ size?: number }>;
+  icon: React.FC<{ size?: string | number }>; // Updated to accept string or number
   label: string;
 }
 
