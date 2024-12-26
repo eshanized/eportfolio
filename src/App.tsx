@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'; // Change to HashRouter
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
