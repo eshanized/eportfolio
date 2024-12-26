@@ -1,4 +1,3 @@
-import React from 'react';
 import { Github, Heart } from 'lucide-react';
 
 function Footer() {
@@ -19,7 +18,7 @@ function Footer() {
             </a>
           </p>
           <p className="text-sm text-gray-500 dark:text-gray-500">
-            © {new Date().getFullYear()} All rights reserved.
+            © {new Date().getFullYear()} All rights reserved. Feel Free to use & customize without the footer!
           </p>
         </div>
       </div>
